@@ -33,7 +33,7 @@ module.exports = {
         postsPath: 'content/posts',
         pagesPath: 'content/pages',
         tagsPath: '/tags',
-        mdx: false
+        mdx: true
       },
     },
     {
