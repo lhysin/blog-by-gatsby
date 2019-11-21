@@ -4,22 +4,37 @@ require(`dotenv`).config({
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `lhysin' blog`,
+    siteTitleAlt: `lhysin's blog - TitleAlt Software Developer Information Blog`,
+    siteHeadline: `Minimal Blog - Headline Software Developer Information Blog`,
+    siteUrl: `https://lhysin.netlyfy.com`,
+    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+    siteLanguage: `ko`,
+    siteImage: `/banner.jpg`,
+    author: `lhysin`,
+    githubUrl: `https://github.com/lhysin`,
     navigation: [
       {
-        title: `Blog`,
-        slug: `/blog`,
+        title: `Posts`,
+        slug: `/posts`,
       },
       {
-        title: `About`,
-        slug: `/about`,
+        title: `Tags`,
+        slug: `/tags`,
       },
     ],
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      options: {},
+      options: {
+        basePath: '/',
+        blogPath: '/posts',
+        postsPath: 'content/posts',
+        pagesPath: 'content/pages',
+        tagsPath: '/tags',
+        mdx: false
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
