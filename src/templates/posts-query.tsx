@@ -30,7 +30,7 @@ export const query = graphql`
           name
           slug
         }
-        categories {
+        category {
           name
           slug
         }

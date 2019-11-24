@@ -39,7 +39,7 @@ const Posts = ({ posts, pageContext }: PostsProps) => {
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, mt: 5 }}>
         { !isFirst && (
           <Styled.a as={Link} to={replaceSlashes(prevPage)}
-            sx={{ float: 'left', alignSelf: 'flex-end', fontSize: [2, 3] }}>
+            sx={{ float: 'left', alignSelf: 'flex-end', fontSize: [1, 2] }}>
             ← Previous Page
           </Styled.a>
         )}
@@ -48,7 +48,7 @@ const Posts = ({ posts, pageContext }: PostsProps) => {
         )}
         { !isLast && (
           <Styled.a as={Link} to={replaceSlashes(nextPage)}
-            sx={{ float: 'right', alignSelf: 'flex-end', fontSize: [2, 3]  }}>
+            sx={{ float: 'right', alignSelf: 'flex-end', fontSize: [1, 2]  }}>
             Next Page →
           </Styled.a>
         )}

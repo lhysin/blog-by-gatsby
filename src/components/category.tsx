@@ -34,7 +34,7 @@ const Category = ({ posts, pageContext }: CategoryProps) => {
     <Layout>
       <SEO title={`Category: ${pageContext.name}`} />
       <Title text={`@${pageContext.name}`}>
-        <Link to={replaceSlashes(`/${basePath}/${categoriesPath}`)} sx={{fontSize: [1, 1]}} >Read all categories</Link>
+        <Link to={replaceSlashes(`/${basePath}/${categoriesPath}`)} sx={{fontSize: [1, 1]}} >Read all category</Link>
       </Title>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>

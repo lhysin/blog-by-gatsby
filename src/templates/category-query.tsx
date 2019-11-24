@@ -19,12 +19,12 @@ export default ({ data, pageContext }: Props) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allPost(sort: { fields: date, order: DESC }, filter: { categories: { elemMatch: { slug: { eq: $slug } } } }) {
+    allPost(sort: { fields: date, order: DESC }, filter: { category: { elemMatch: { slug: { eq: $slug } } } }) {
       nodes {
         slug
         title
         date(formatString: "YYYY-MM-DD")
-        categories {
+        category {
           name
           slug
         }
@@ -32,7 +32,7 @@ export const query = graphql`
           name
           slug
         }
-        categories {
+        category {
           name
           slug
         }

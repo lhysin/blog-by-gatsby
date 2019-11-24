@@ -22,8 +22,8 @@ export default ({ data }: Props) => {
 
 export const query = graphql`
   query {
-    allPost(sort: { fields: categories___name, order: DESC }) {
-      group(field: categories___name) {
+    allPost(sort: { fields: category___name, order: DESC }) {
+      group(field: category___name) {
         fieldValue
         totalCount
       }

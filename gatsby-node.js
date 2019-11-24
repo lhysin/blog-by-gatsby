@@ -78,7 +78,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       html: String
       timeToRead: Int!
       tags: [PostTag]
-      categories: [PostCategory]
+      category: [PostCategory]
       banner: File @fileByRelativePath
       description: String
     }
@@ -110,7 +110,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       html: String! @mdxpassthrough(fieldName: "html")
       timeToRead: Int! @mdxpassthrough(fieldName: "timeToRead")
       tags: [PostTag]
-      categories: [PostCategory]
+      category: [PostCategory]
       banner: File @fileByRelativePath
       description: String
     }
@@ -142,32 +142,42 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
 
   // Check for "projects" and create the "Project" type
   if (node.internal.type === `Mdx` && source === postsFilePath) {
-    let modifiedTags
-    let modifiedCategories
+    let modifiedTags = []
+    let modifiedCategories = []
 
-    if (node.frontmatter.tags) {
-      modifiedTags = node.frontmatter.tags.map(tag => ({
-        name: tag,
-        slug: kebabCase(tag),
-      }))
-    } else {
-      modifiedTags = []
-    }   
+    if (!!node.frontmatter.tags) {
+      if(Array.isArray(node.frontmatter.tags)){
+        modifiedTags = modifiedCategories.concat(node.frontmatter.tags.map(tag => ({
+          name: tag,
+          slug: kebabCase(tag),
+        })))
+      } else {
+        modifiedTags.push({
+          name: node.frontmatter.tags,
+          slug: kebabCase(node.frontmatter.tags),
+        })
+      }
+    }
 
-    if (node.frontmatter.categories) {
-      modifiedCategories = node.frontmatter.categories.map(category => ({
-        name: category,
-        slug: kebabCase(category),
-      }))
-    } else {
-      modifiedCategories = []
+    if (!!node.frontmatter.category) {
+      if(Array.isArray(node.frontmatter.category)){
+        modifiedCategories = modifiedCategories.concat(node.frontmatter.category.map(category => ({
+          name: category,
+          slug: kebabCase(category),
+        })))
+      } else {
+        modifiedCategories.push({
+          name: node.frontmatter.category,
+          slug: kebabCase(node.frontmatter.category),
+        })
+      }
     }
 
     const fieldData = {
       title: node.frontmatter.title,
       date: node.frontmatter.date,
       tags: modifiedTags,
-      categories: modifiedCategories,
+      category: modifiedCategories,
       banner: node.frontmatter.banner,
       description: node.frontmatter.description,
     }
@@ -225,8 +235,8 @@ const postTemplate = require.resolve(`./src/templates/post-query.tsx`)
 const pageTemplate = require.resolve(`./src/templates/page-query.tsx`)
 const tagTemplate = require.resolve(`./src/templates/tag-query.tsx`)
 const tagsTemplate = require.resolve(`./src/templates/tags-query.tsx`)
-const categoryTemplate = require.resolve(`./src/templates/category-query.tsx`)
 const categoriesTemplate = require.resolve(`./src/templates/categories-query.tsx`)
+const categoryTemplate = require.resolve(`./src/templates/category-query.tsx`)
 
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
@@ -266,8 +276,8 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
           fieldValue
         }
       }
-      categories: allPost(sort: { fields: categories___name, order: DESC }) {
-        group(field: categories___name) {
+      category: allPost(sort: { fields: category___name, order: DESC }) {
+        group(field: category___name) {
           fieldValue
         }
       }
@@ -326,10 +336,10 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     })
   }
 
-  const categories = result.data.categories.group
+  const category = result.data.category.group
 
-  if (categories.length > 0) {
-    categories.forEach(category => {
+  if (category.length > 0) {
+    category.forEach(category => {
       createPage({
         path: `/${basePath}/${categoriesPath}/${kebabCase(category.fieldValue)}`.replace(/\/\/+/g, `/`),
         component: categoryTemplate,

@@ -25,8 +25,8 @@ const PostListItem = ({ post, showTags = true, showCategories = true }: PostList
   const { categoriesPath, basePath } = useSiteMetadata()
 
   let category = '';
-  if(!!post.categories && post.categories.length > 0){
-    category = post.categories[0];
+  if(!!post.category && post.category.length > 0){
+    category = post.category[0];
   }
 
   return (

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tutorial: How to Use Hexo's A-Snippet Theme"
-categories:
+category:
 - tutorial
 tags:
 - hexo
@@ -206,9 +206,9 @@ There are several ways you can help:
 
 * list-category-leetcode layout
 
-	I used `site.categories.findOne({name: page["search_word"]}).posts.sort('title', 1).each(function(post) {}` to get the posts for a specified categories. There are two bugs that I don't know how to solve.
+	I used `site.category.findOne({name: page["search_word"]}).posts.sort('title', 1).each(function(post) {}` to get the posts for a specified category. There are two bugs that I don't know how to solve.
 
-	* You must use `["language", "python"]` format for the `categories` in the front matter. Otherwise, the post does not appear in the list.
+	* You must use `["language", "python"]` format for the `category` in the front matter. Otherwise, the post does not appear in the list.
 	* Hyphen (`-`) cannot be included in the category names.
 
 ## Thanks
