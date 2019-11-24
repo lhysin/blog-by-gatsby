@@ -225,11 +225,14 @@ const postTemplate = require.resolve(`./src/templates/post-query.tsx`)
 const pageTemplate = require.resolve(`./src/templates/page-query.tsx`)
 const tagTemplate = require.resolve(`./src/templates/tag-query.tsx`)
 const tagsTemplate = require.resolve(`./src/templates/tags-query.tsx`)
+const categoryTemplate = require.resolve(`./src/templates/category-query.tsx`)
+const categoriesTemplate = require.resolve(`./src/templates/categories-query.tsx`)
+
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const { createPage } = actions
 
-  const { basePath, postPath, tagsPath } = withDefaults(themeOptions)
+  const { basePath, postPath, tagsPath, categoriesPath } = withDefaults(themeOptions)
 
   createPage({
     path: basePath,
@@ -246,6 +249,11 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     component: tagsTemplate,
   })
 
+  createPage({
+    path: `/${basePath}/${categoriesPath}`.replace(/\/\/+/g, `/`),
+    component: categoriesTemplate,
+  })
+
   const result = await graphql(`
     query {
       allPost(sort: { fields: date, order: DESC }) {
@@ -260,6 +268,11 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
       }
       tags: allPost(sort: { fields: tags___name, order: DESC }) {
         group(field: tags___name) {
+          fieldValue
+        }
+      }
+      categories: allPost(sort: { fields: categories___name, order: DESC }) {
+        group(field: categories___name) {
           fieldValue
         }
       }
@@ -294,6 +307,21 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
         component: pageTemplate,
         context: {
           slug: page.slug,
+        },
+      })
+    })
+  }
+
+  const categories = result.data.categories.group
+
+  if (categories.length > 0) {
+    categories.forEach(category => {
+      createPage({
+        path: `/${basePath}/${categoriesPath}/${kebabCase(category.fieldValue)}`.replace(/\/\/+/g, `/`),
+        component: categoryTemplate,
+        context: {
+          slug: kebabCase(category.fieldValue),
+          name: category.fieldValue,
         },
       })
     })

@@ -1,8 +1,8 @@
 {
-  "name": "@lekoarts/gatsby-theme-minimal-blog-core",
+  "name": "lhysin-blog",
   "version": "1.0.1",
-  "author": "LekoArts <hello@lekoarts.de>",
-  "description": "Core Theme for @lekoarts/gatsby-theme-minimal-blog. This theme implements the Post and Page node interfaces and exports templates (+ queries) which you can shadow.",
+  "author": "lhysin",
+  "description": "lhysin's blog",
   "license": "MIT",
   "main": "index.js",
   "publishConfig": {
@@ -61,16 +61,15 @@
     "gatsby",
     "gatsby-theme",
     "gatsby-plugin",
-    "lekoarts"
+    "lhysin"
   ],
   "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-themes/issues"
+    "url": "https://github.com/lhysin"
   },
-  "homepage": "https://themes.lekoarts.de",
+  "homepage": "https://github.com/lhysin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LekoArts/gatsby-themes.git",
-    "directory": "themes/gatsby-theme-minimal-blog-core"
+    "url": "https://github.com/lhysin/blog-by-gatsby"
   },
   "gitHead": "812039d685e326aca9aa0f0aa7ee866df3106a39"
 }

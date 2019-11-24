@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://lhysin.netlify.com/sitemap.xml

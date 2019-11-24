@@ -18,6 +18,7 @@ export default {
     float: `left`,
     minWidth: `100%`,
     mb: 0,
+    mt: 0,
     '&[data-linenumber="false"]': {
       ".token-line": {
         pl: 3,
@@ -34,12 +35,13 @@ export default {
     py: 1,
   },
   ".gatsby-highlight": {
+    mt: `0.5rem`,
+    mb: `0.5rem`,
     fontSize: 1,
     position: `relative`,
     webkitOverflowScrolling: `touch`,
     bg: `rgb(1, 22, 39)`,
     overflow: `auto`,
-    mx: [0, 0, 0, -3],
     ".token-line": {
       mx: -3,
     },

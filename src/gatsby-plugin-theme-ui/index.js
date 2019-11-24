@@ -4,35 +4,35 @@ const headingStyles = {
   h1: {
     ...tailwind.styles.h1,
     color: `heading`,
-    fontSize: [5, 6, 7],
-    mt: 2,
+    //fontSize: [5, 6, 7],
+    mt: 3,
   },
   h2: {
     ...tailwind.styles.h2,
     color: `heading`,
-    fontSize: [4, 5, 6],
-    mt: 2,
+    //fontSize: [4, 5, 6],
+    mt: 3,
   },
   h3: {
     ...tailwind.styles.h3,
     color: `heading`,
-    fontSize: [3, 4, 5],
+    //fontSize: [3, 4, 5],
     mt: 3,
   },
   h4: {
     ...tailwind.styles.h4,
     color: `heading`,
-    fontSize: [2, 3, 4],
+    //fontSize: [2, 3, 4],
   },
   h5: {
     ...tailwind.styles.h5,
     color: `heading`,
-    fontSize: [1, 2, 3],
+    //fontSize: [1, 2, 3],
   },
   h6: {
     ...tailwind.styles.h6,
     color: `heading`,
-    fontSize: 1,
+    //fontSize: 1,
     mb: 2,
   },
 }
@@ -43,15 +43,17 @@ export default {
   useCustomProperties: true,
   colors: {
     ...tailwind.colors,
-    primary: tailwind.colors.purple[7],
+    primary: tailwind.colors.gray[6],
     secondary: `#5f6c80`,
     toggleIcon: tailwind.colors.gray[8],
     heading: tailwind.colors.black,
     divide: tailwind.colors.gray[4],
+    listText: tailwind.colors.black[2],
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
-        primary: tailwind.colors.purple[5],
+        listText: tailwind.colors.gray[2],
+        primary: tailwind.colors.gray[6],
         secondary: `#7f8ea3`,
         toggleIcon: tailwind.colors.gray[4],
         background: `#1A202C`,
@@ -79,6 +81,13 @@ export default {
       "--x-height-multiplier": 0.35,
     },
     ...headingStyles,
+/*    a: {
+      color: `#0366d6`
+    },*/
+    hr: {
+      mt: 2,
+      mb: 2
+    },
     Container: {
       padding: [3, 4],
     },

@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
       siteTitle: `lhysin' blog`,
-      siteTitleAlt: `lhysin's blog - TitleAlt Software Developer Information Blog`,
-      siteHeadline: `Minimal Blog - Headline Software Developer Information Blog`,
+      siteTitleAlt: `lhysin's blog`,
+      siteHeadline: `lhysin's blog`,
       siteUrl: `https://lhysin.netlyfy.com`,
-      siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+      siteDescription: `lhysin's blog`,
       siteLanguage: `ko`,
       siteImage: `/banner.jpg`,
       author: `lhysin`,
@@ -19,6 +19,10 @@ module.exports = {
           slug: `/posts`,
         },
         {
+          title: `Categories`,
+          slug: `/categories`,
+        },
+        {
           title: `Tags`,
           slug: `/tags`,
         },
@@ -28,6 +32,7 @@ module.exports = {
       postsFilePath: 'content/posts',
       pagesFilePath: 'content/pages',
       tagsPath: '/tags',
+      categoriesPath: '/categories',
       showLineNumbers: true
     },
     plugins: [
@@ -55,12 +60,12 @@ module.exports = {
       {
         resolve: `gatsby-plugin-manifest`,
         options: {
-          name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-          short_name: `minimal-blog`,
-          description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+          name: `lhysin' blog`,
+          short_name: `lhysin' blog`,
+          description: `lhysin' blog`,
           start_url: `/`,
           background_color: `#fff`,
-          theme_color: `#6B46C1`,
+          theme_color: `#1a202c`,
           display: `standalone`,
           icons: [
             {

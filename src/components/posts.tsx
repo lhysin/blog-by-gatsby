@@ -28,7 +28,6 @@ const Blog = ({ posts }: PostsProps) => {
     <Layout>
       <SEO title="Posts" />
       <Title text="Posts">
-        <Link to={replaceSlashes(`/${basePath}/${tagsPath}`)} sx={{fontSize: [1, 1]}}>View all tags</Link>
       </Title>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>

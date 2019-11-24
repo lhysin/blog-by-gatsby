@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
-import Tag from "../components/tag"
+import Category from "../components/category"
 
 type Props = {
   data: {
@@ -13,13 +13,13 @@ type Props = {
 export default ({ data, pageContext }: Props) => {
   const { allPost } = data
 
-  return <Tag posts={allPost.nodes} pageContext={pageContext} />
+  return <Category posts={allPost.nodes} pageContext={pageContext} />
 }
 
 
 export const query = graphql`
   query($slug: String!) {
-    allPost(sort: { fields: date, order: DESC }, filter: { tags: { elemMatch: { slug: { eq: $slug } } } }) {
+    allPost(sort: { fields: date, order: DESC }, filter: { categories: { elemMatch: { slug: { eq: $slug } } } }) {
       nodes {
         slug
         title
@@ -29,6 +29,10 @@ export const query = graphql`
           slug
         }
         tags {
+          name
+          slug
+        }
+        categories {
           name
           slug
         }

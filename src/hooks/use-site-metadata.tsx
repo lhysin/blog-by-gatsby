@@ -13,6 +13,7 @@ type Props = {
       author: string
       githubUrl: string
       tagsPath: string
+      categoriesPath: string
       basePath: string
       postPath: string
       showLineNumbers: boolean
@@ -35,6 +36,7 @@ const useSiteMetadata = () => {
           author
           githubUrl
           tagsPath
+          categoriesPath
           basePath
           postPath
           showLineNumbers
