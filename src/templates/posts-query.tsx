@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
-import Blog from "../components/posts"
+import Posts from "../components/posts"
 
 type Props = {
   data: {
@@ -9,15 +9,19 @@ type Props = {
   }
 }
 
-export default ({ data }: Props) => {
+export default ({ data, pageContext }: Props) => {
   const { allPost } = data
 
-  return <Blog posts={allPost.nodes} />
+  return <Posts posts={allPost.nodes} pageContext={pageContext} />
 }
 
 export const query = graphql`
-  query {
-    allPost(sort: { fields: date, order: DESC }) {
+  query ($skip: Int!, $limit: Int!) {
+    allPost(
+      sort: { fields: date, order: DESC }
+      skip: $skip
+      limit: $limit
+    ) {
       nodes {
         slug
         title

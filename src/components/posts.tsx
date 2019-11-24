@@ -21,8 +21,14 @@ type PostsProps = {
   }[]
 }
 
-const Blog = ({ posts }: PostsProps) => {
-  const { tagsPath, basePath } = useSiteMetadata()
+const Posts = ({ posts, pageContext }: PostsProps) => {
+
+  const { tagsPath, basePath, postPath } = useSiteMetadata()
+  const { currentPage, numPages } = pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage = currentPage - 1 === 1 ? `/${basePath}/${postPath}` : `/${basePath}/${postPath}/${(currentPage - 1).toString()}`
+  const nextPage = `/${basePath}/${postPath}/${(currentPage + 1).toString()}`
 
   return (
     <Layout>
@@ -30,8 +36,25 @@ const Blog = ({ posts }: PostsProps) => {
       <Title text="Posts">
       </Title>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
+      <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, mt: 5 }}>
+        { !isFirst && (
+          <Styled.a as={Link} to={replaceSlashes(prevPage)}
+            sx={{ float: 'left', alignSelf: 'flex-end', fontSize: [2, 3] }}>
+            ← Previous Page
+          </Styled.a>
+        )}
+        { !!isFirst && (
+          <div sx={{float : 'left'}}></div>
+        )}
+        { !isLast && (
+          <Styled.a as={Link} to={replaceSlashes(nextPage)}
+            sx={{ float: 'right', alignSelf: 'flex-end', fontSize: [2, 3]  }}>
+            Next Page →
+          </Styled.a>
+        )}
+      </Flex>
     </Layout>
   )
 }
 
-export default Blog
+export default Posts
