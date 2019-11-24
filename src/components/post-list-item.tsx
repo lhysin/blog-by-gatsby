@@ -22,7 +22,7 @@ type PostListItemProps = {
 
 const PostListItem = ({ post, showTags = true, showCategories = true }: PostListItemProps) => {
 
-  const { categoriesPath, basePath } = useSiteMetadata()
+  const { categoriesPath, postPath, basePath } = useSiteMetadata()
 
   let category = '';
   if(!!post.category && post.category.length > 0){
@@ -31,7 +31,9 @@ const PostListItem = ({ post, showTags = true, showCategories = true }: PostList
 
   return (
     <Box mb={4}>
-      <Styled.a as={Link} to={post.slug} sx={{ fontSize: [2, 3, 4], color: `listText` }}>
+      <Styled.a as={Link}
+        to={replaceSlashes(`/${basePath}/${postPath}/${post.slug}`)}
+        sx={{ fontSize: [2, 3, 4], color: `listText` }}>
         {post.title}
       </Styled.a>
       <p sx={{ color: `secondary`, mt:0, mb:0, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>

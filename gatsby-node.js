@@ -182,6 +182,11 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       description: node.frontmatter.description,
     }
 
+    if(!fieldData.title || !fieldData.date){
+      console.error('fieldData.title or fieldData.date invalid.');
+      return
+    }
+
     const mdxPostId = createNodeId(`${node.id} >>> MdxPost`)
 
     createNode({
@@ -312,7 +317,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   if(posts.length > 0){
       posts.forEach(post => {
       createPage({
-        path: post.slug,
+        path: `/${basePath}/${postPath}/${post.slug}`.replace(/\/\/+/g, `/`),
         component: postTemplate,
         context: {
           slug: post.slug,

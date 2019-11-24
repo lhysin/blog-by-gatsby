@@ -10,10 +10,10 @@ module.exports = {
       author: `lhysin`,
       githubUrl: `https://github.com/lhysin`,
       navigation: [
-        {
+/*        {
           title: `Home`,
           slug: `/`,
-        },
+        },*/
         {
           title: `Posts`,
           slug: `/posts`,

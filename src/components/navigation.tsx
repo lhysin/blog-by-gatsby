@@ -14,10 +14,16 @@ type NavigationProps = {
 const Navigation = ({ nav }: NavigationProps) => {
   const { basePath } = useSiteMetadata()
 
+const isPartiallyActive = ({ isPartiallyCurrent }) =>
+  isPartiallyCurrent ? { className: "active" } : null;
+
+
   return (
     <nav sx={{ "a:not(:last-of-type)": { mr: 3 }, fontSize: [1, `18px`], ".active": { color: `heading` } }}>
       {nav.map(item => (
-        <Styled.a key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${item.slug}`)}>
+        <Styled.a key={item.slug} as={Link} activeClassName="active" 
+          to={replaceSlashes(`/${basePath}/${item.slug}`)}
+           getProps={`${item.slug}` === `${basePath}` ? undefined : isPartiallyActive}>
           {item.title}
         </Styled.a>
       ))}
