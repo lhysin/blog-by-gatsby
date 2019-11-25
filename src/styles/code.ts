@@ -29,8 +29,8 @@ export default {
     display: `inline-block`,
   },
   "p > code": {
-    bg: `rgb(1, 22, 39)`,
-    color: `rgb(214, 222, 235)`,
+    bg: `mdCodeBg`,
+    color: `mdCodeText`,
     px: 2,
     py: 1,
   },
@@ -51,7 +51,8 @@ export default {
     "pre.language-noLineNumbers": {
       mt: 0,
     },
-    'pre[class*="language-"]:before': {
+    /* disable tile */
+    /*'pre[class*="language-"]:before': {
       bg: `white`,
       borderRadius: `0 0 0.25rem 0.25rem`,
       color: `black`,
@@ -133,7 +134,7 @@ export default {
     "pre[class='language-diff']:before": {
       content: `'diff'`,
       background: `#e6ffed`,
-    },
+    },*/
   },
   '.gatsby-highlight > code[class*="language-"], .gatsby-highlight > pre[class=*="language-"]': {
     wordSpacing: `normal`,

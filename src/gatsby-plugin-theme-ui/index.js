@@ -4,7 +4,7 @@ const headingStyles = {
   h1: {
     ...tailwind.styles.h1,
     color: `heading`,
-    //fontSize: [5, 6, 7],
+    //fontSize: [4, 5, 6],
     mt: 3,
   },
   h2: {
@@ -49,6 +49,9 @@ export default {
     heading: tailwind.colors.black,
     divide: tailwind.colors.gray[4],
     listText: tailwind.colors.black[2],
+    mdCodeBg: tailwind.colors.gray[2],
+    mdCodeText: tailwind.colors.gray[9],
+    mdAColor: tailwind.colors.gray[1],
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
@@ -59,6 +62,9 @@ export default {
         background: `#1A202C`,
         heading: tailwind.colors.white,
         divide: tailwind.colors.gray[8],
+        mdCodeBg: tailwind.colors.gray[8],
+        mdCodeText: tailwind.colors.gray[2],
+        mdAColor: tailwind.colors.gray[1],
       },
     },
   },
@@ -81,9 +87,9 @@ export default {
       "--x-height-multiplier": 0.35,
     },
     ...headingStyles,
-/*    a: {
-      color: `#0366d6`
-    },*/
+    "p > a": {
+      color: `mdAColor`
+    },
     hr: {
       mt: 2,
       mb: 2
@@ -97,9 +103,6 @@ export default {
       borderLeftWidth: `6px`,
       mx: 0,
       pl: 4,
-      p: {
-        fontStyle: `italic`,
-      },
     },
   },
   text: {
