@@ -11,7 +11,10 @@ const headingStyles = {
     ...tailwind.styles.h2,
     color: `heading`,
     fontSize: [4, 5],
-    mt: [60, 100]
+    mt: [60, 100],
+    borderBottom: `1px solid`,
+    borderBottomColor: `mdHBDBottomColor`,
+    paddingBottom: [1, 2]
   },
   h3: {
     ...tailwind.styles.h3,
@@ -26,18 +29,27 @@ const headingStyles = {
     ...tailwind.styles.h4,
     color: `heading`,
     fontSize: [2, 3],
-    mt: [50, 80]
+    mt: [50, 80],
+    borderBottom: `1px solid`,
+    borderBottomColor: `mdHBDBottomColor`,
+    paddingBottom: [1, 2]
   },
   h5: {
     ...tailwind.styles.h5,
     color: `heading`,
     fontSize: [1, 2],
+    mb: 2,
+    mt: [30, 50],
+    borderBottom: `1px solid`,
+    borderBottomColor: `mdHBDBottomColor`,
+    paddingBottom: [1, 2]
   },
   h6: {
     ...tailwind.styles.h6,
     color: `heading`,
     fontSize: 1,
     mb: 2,
+    mt: [30, 50]
   },
 }
 
