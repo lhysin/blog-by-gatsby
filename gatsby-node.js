@@ -1,5 +1,7 @@
 const fs = require(`fs`)
 const kebabCase = require(`lodash.kebabcase`)
+const toUpper = require(`lodash/toUpper`)
+const toLower = require(`lodash/toLower`)
 const mkdirp = require(`mkdirp`)
 const path = require(`path`)
 const withDefaults = require(`./src/utils/default-options`)
@@ -148,13 +150,13 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     if (!!node.frontmatter.tags) {
       if(Array.isArray(node.frontmatter.tags)){
         modifiedTags = modifiedCategories.concat(node.frontmatter.tags.map(tag => ({
-          name: tag,
-          slug: kebabCase(tag),
+          name: toLower(tag),
+          slug: toLower(tag),
         })))
       } else {
         modifiedTags.push({
-          name: node.frontmatter.tags,
-          slug: kebabCase(node.frontmatter.tags),
+          name: toLower(node.frontmatter.tags),
+          slug: toLower(node.frontmatter.tags),
         })
       }
     }
@@ -162,13 +164,13 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     if (!!node.frontmatter.category) {
       if(Array.isArray(node.frontmatter.category)){
         modifiedCategories = modifiedCategories.concat(node.frontmatter.category.map(category => ({
-          name: category,
-          slug: kebabCase(category),
+          name: toUpper(category),
+          slug: toUpper(category),
         })))
       } else {
         modifiedCategories.push({
-          name: node.frontmatter.category,
-          slug: kebabCase(node.frontmatter.category),
+          name: toUpper(node.frontmatter.category),
+          slug: toUpper(node.frontmatter.category),
         })
       }
     }
@@ -268,11 +270,13 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     query {
       allPost(sort: { fields: date, order: DESC }) {
         nodes {
+          title
           slug
         }
       }
       allPage {
         nodes {
+          title
           slug
         }
       }
@@ -296,7 +300,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   const posts = result.data.allPost.nodes
 
-  const postsPerPage = 3;
+  const postsPerPage = 10;
   const numPages = Math.ceil(posts.length / postsPerPage);
 
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -317,7 +321,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   if(posts.length > 0){
       posts.forEach(post => {
       createPage({
-        path: `/${basePath}/${postPath}/${post.slug}`.replace(/\/\/+/g, `/`),
+        path: `/${basePath}/${postPath}/${post.title}`.replace(/\/\/+/g, `/`),
         component: postTemplate,
         context: {
           slug: post.slug,
@@ -346,10 +350,10 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   if (category.length > 0) {
     category.forEach(category => {
       createPage({
-        path: `/${basePath}/${categoriesPath}/${kebabCase(category.fieldValue)}`.replace(/\/\/+/g, `/`),
+        path: `/${basePath}/${categoriesPath}/${category.fieldValue}`.replace(/\/\/+/g, `/`),
         component: categoryTemplate,
         context: {
-          slug: kebabCase(category.fieldValue),
+          slug: category.fieldValue,
           name: category.fieldValue,
         },
       })
@@ -361,10 +365,10 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   if (tags.length > 0) {
     tags.forEach(tag => {
       createPage({
-        path: `/${basePath}/${tagsPath}/${kebabCase(tag.fieldValue)}`.replace(/\/\/+/g, `/`),
+        path: `/${basePath}/${tagsPath}/${tag.fieldValue}`.replace(/\/\/+/g, `/`),
         component: tagTemplate,
         context: {
-          slug: kebabCase(tag.fieldValue),
+          slug: tag.fieldValue,
           name: tag.fieldValue,
         },
       })

@@ -34,7 +34,6 @@ const Tag = ({ posts, pageContext }: TagProps) => {
     <Layout>
       <SEO title={`Tag: ${pageContext.name}`} />
       <Title text={`Tag: #${pageContext.name}`}>
-        <Link to={replaceSlashes(`/${basePath}/${tagsPath}`)} sx={{fontSize: [1, 1]}} >Read all tags</Link>
       </Title>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>

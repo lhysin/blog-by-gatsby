@@ -32,7 +32,7 @@ const PostListItem = ({ post, showTags = true, showCategories = true }: PostList
   return (
     <Box mb={4}>
       <Styled.a as={Link}
-        to={replaceSlashes(`/${basePath}/${postPath}/${post.slug}`)}
+        to={replaceSlashes(`/${basePath}/${postPath}/${post.title}`)}
         sx={{ fontSize: [2, 3, 4], color: `listText` }}>
         {post.title}
       </Styled.a>

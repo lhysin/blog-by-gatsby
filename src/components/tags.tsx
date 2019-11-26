@@ -29,7 +29,7 @@ const Tags = ({ list }: PostsProps) => {
             <Styled.a
               as={Link}
               sx={{ variant: `links.listItem`, mr: 2 }}
-              to={`/${tagsPath}/${kebabCase(listItem.fieldValue)}`.replace(/\/\/+/g, `/`)}
+              to={`/${tagsPath}/${listItem.fieldValue}`.replace(/\/\/+/g, `/`)}
             >
               {`#`}{listItem.fieldValue} <span sx={{ color: `secondary` }}>({listItem.totalCount})</span>
             </Styled.a>

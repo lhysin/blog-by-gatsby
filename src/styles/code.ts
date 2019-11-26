@@ -38,6 +38,10 @@ export default {
     color: `mdCodeText`,
     px: 2,
     py: 1,
+    pl: `0.2rem`,
+    pr: `0.2rem`,
+    pt: `0.2rem`,
+    pb: `0.2rem`,   
   },
 
   ".gatsby-highlight": {
