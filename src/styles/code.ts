@@ -28,12 +28,18 @@ export default {
   ".token": {
     display: `inline-block`,
   },
-  "p > code": {
+
+  /* markdown section only */
+  'section[name="markdown-post"] a': {
+    color: `mdAColor`,
+  },
+  'section[name="markdown-post"] code': {
     bg: `mdCodeBg`,
     color: `mdCodeText`,
     px: 2,
     py: 1,
   },
+
   ".gatsby-highlight": {
     mt: `0.5rem`,
     mb: `0.5rem`,

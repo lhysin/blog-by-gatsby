@@ -4,35 +4,39 @@ const headingStyles = {
   h1: {
     ...tailwind.styles.h1,
     color: `heading`,
-    //fontSize: [4, 5, 6],
-    mt: 3,
+    fontSize: [4, 5],
+    mt: [60, 100],
   },
   h2: {
     ...tailwind.styles.h2,
     color: `heading`,
-    //fontSize: [4, 5, 6],
-    mt: 3,
+    fontSize: [4, 5],
+    mt: [60, 100]
   },
   h3: {
     ...tailwind.styles.h3,
     color: `heading`,
-    //fontSize: [3, 4, 5],
-    mt: 3,
+    fontSize: [3, 4],
+    mt: [60, 100],
+    borderBottom: `1px solid`,
+    borderBottomColor: `mdHBDBottomColor`,
+    paddingBottom: [1, 2]
   },
   h4: {
     ...tailwind.styles.h4,
     color: `heading`,
-    //fontSize: [2, 3, 4],
+    fontSize: [2, 3],
+    mt: [50, 80]
   },
   h5: {
     ...tailwind.styles.h5,
     color: `heading`,
-    //fontSize: [1, 2, 3],
+    fontSize: [1, 2],
   },
   h6: {
     ...tailwind.styles.h6,
     color: `heading`,
-    //fontSize: 1,
+    fontSize: 1,
     mb: 2,
   },
 }
@@ -51,7 +55,8 @@ export default {
     listText: tailwind.colors.black[2],
     mdCodeBg: tailwind.colors.gray[2],
     mdCodeText: tailwind.colors.gray[9],
-    mdAColor: tailwind.colors.gray[1],
+    mdAColor: tailwind.colors.blue[7],
+    mdHBDBottomColor: tailwind.colors.black,
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
@@ -64,7 +69,8 @@ export default {
         divide: tailwind.colors.gray[8],
         mdCodeBg: tailwind.colors.gray[8],
         mdCodeText: tailwind.colors.gray[2],
-        mdAColor: tailwind.colors.gray[1],
+        mdAColor: tailwind.colors.indigo[2],
+        mdHBDBottomColor: tailwind.colors.gray[4],
       },
     },
   },
@@ -80,16 +86,13 @@ export default {
       backgroundColor: `background`,
     },
     p: {
-      fontSize: [1, 1, 2],
+      fontSize: [14.5, 16.5],
       letterSpacing: `-0.003em`,
       lineHeight: `body`,
       "--baseline-multiplier": 0.179,
       "--x-height-multiplier": 0.35,
     },
     ...headingStyles,
-    "p > a": {
-      color: `mdAColor`
-    },
     hr: {
       mt: 2,
       mb: 2

@@ -3,7 +3,7 @@ module.exports = {
       siteTitle: `lhysin' blog`,
       siteTitleAlt: `lhysin's blog`,
       siteHeadline: `lhysin's blog`,
-      siteUrl: `https://lhysin.netlyfy.com`,
+      siteUrl: `https://lhysin.netlify.com`,
       siteDescription: `lhysin's blog`,
       siteLanguage: `ko`,
       siteImage: `/banner.jpg`,
@@ -50,12 +50,12 @@ module.exports = {
           name: `content/pages`,
         },
       },
-/*      {
+      {
         resolve: `gatsby-plugin-google-analytics`,
         options: {
-          trackingId: process.env.GOOGLE_ANALYTICS_ID,
+          trackingId: 'UA-153392433-1',
         },
-      },*/
+      },
       `gatsby-plugin-sitemap`,
       {
         resolve: `gatsby-plugin-manifest`,
@@ -116,6 +116,52 @@ module.exports = {
       `gatsby-plugin-typescript`,
       `gatsby-plugin-offline`,
       `gatsby-plugin-netlify`,
+
+      {
+        resolve: `gatsby-plugin-feed`,
+        options: {
+          query: `
+            {
+              site {
+                siteMetadata {
+                  siteTitle
+                  siteDescription
+                  siteUrl
+                }
+              }
+            }
+          `,
+          feeds: [
+            {
+              serialize: ({ query: { site, allPost } }) => {
+                return allPost.nodes.map(node => {
+                   return Object.assign({}, node, {
+                     description: node.excerpt
+                    ,date: node.date
+                    ,url: site.siteMetadata.siteUrl + '/posts' + node.slug
+                    ,guid: site.siteMetadata.siteUrl + '/posts' + node.slug
+                    ,custom_elements : [{"content:encoded":node.title}]
+                  })
+                })
+              },
+              query: `
+                {
+                  allPost(sort: {fields: date, order: DESC}) {
+                    nodes {
+                      slug
+                      title
+                      date(formatString: "YYYY-MM-DD")
+                      excerpt
+                    }
+                  }
+                }
+              `,
+              output: "/rss.xml",
+              title: "lhysin'blog RSS Feed",
+            },
+          ],
+        },
+      }
     ],
   }
 

@@ -183,7 +183,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     }
 
     if(!fieldData.title || !fieldData.date){
-      console.error('fieldData.title or fieldData.date invalid.');
+      console.error(`${fieldData.slug} >>> fieldData.title or fieldData.date invalid.`);
       return
     }
 

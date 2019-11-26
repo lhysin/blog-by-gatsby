@@ -71,7 +71,7 @@ const Post = ({ data: { post } }: PostProps) => {
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
-      <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
+      <section name="markdown-post" sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </section>
     </Layout>
