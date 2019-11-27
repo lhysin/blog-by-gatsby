@@ -49,7 +49,7 @@ const headingStyles = {
     color: `heading`,
     fontSize: 1,
     mb: 2,
-    mt: [30, 50]
+    mt: [20, 30]
   },
 }
 

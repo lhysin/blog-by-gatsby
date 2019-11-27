@@ -2,7 +2,7 @@
 title: "라즈베리파이 Apache2와 Tomcat7 연동하기"
 date: "2016-07-02"
 category:
-  - rasberrypi
+  - devops
 tags:
   - rasberrypi
 ---
