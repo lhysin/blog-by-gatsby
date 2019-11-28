@@ -59,6 +59,7 @@ export default {
     mb: `0.5rem`,
     fontSize: 1,
     position: `relative`,
+    borderRadius: `7px`,
     webkitOverflowScrolling: `touch`,
     bg: `rgb(1, 22, 39)`,
     overflow: `auto`,
@@ -72,18 +73,19 @@ export default {
       mt: 0,
     },
     /* disable tile */
-    /*'pre[class*="language-"]:before': {
+    'pre[class*="language-"]:before': {
       bg: `white`,
       borderRadius: `0 0 0.25rem 0.25rem`,
       color: `black`,
       fontSize: `12px`,
       letterSpacing: `0.025rem`,
       padding: `0.1rem 0.5rem`,
-      position: `absolute`,
+      // position: `absolute`,
       left: `1rem`,
       textAlign: `right`,
       textTransform: `uppercase`,
       top: 0,
+      float: `right`,
     },
     'pre[class~="language-javascript"]:before': {
       content: `"js"`,
@@ -112,6 +114,10 @@ export default {
     },
     'pre[class~="language-html"]:before': {
       content: `"html"`,
+      background: `#005a9c`,
+    },
+    'pre[class~="language-xml"]:before': {
+      content: `"xml"`,
       background: `#005a9c`,
     },
     'pre[class~="language-graphql"]:before': {
@@ -154,7 +160,7 @@ export default {
     "pre[class='language-diff']:before": {
       content: `'diff'`,
       background: `#e6ffed`,
-    },*/
+    },
   },
   '.gatsby-highlight > code[class*="language-"], .gatsby-highlight > pre[class=*="language-"]': {
     wordSpacing: `normal`,

@@ -9,7 +9,7 @@ tags:
   - yarn
 ---
 
-> NodeJS, NPM(노드패키지 매니저), yarn에 대해 알아본다.
+> NodeJS, npm, yarn에 대해 알아본다.
 
 #### NodeJS
 
