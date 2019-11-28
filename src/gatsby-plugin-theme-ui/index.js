@@ -12,27 +12,27 @@ const headingStyles = {
     color: `heading`,
     fontSize: [4, 5],
     mt: [60, 100],
-    borderBottom: `1px solid`,
-    borderBottomColor: `mdHBDBottomColor`,
-    paddingBottom: [1, 2]
+    // borderBottom: `1px solid`,
+    // borderBottomColor: `mdHBDBottomColor`,
+    // paddingBottom: [1, 2]
   },
   h3: {
     ...tailwind.styles.h3,
     color: `heading`,
     fontSize: [3, 4],
     mt: [60, 100],
-    borderBottom: `1px solid`,
-    borderBottomColor: `mdHBDBottomColor`,
-    paddingBottom: [1, 2]
+    // borderBottom: `1px solid`,
+    // borderBottomColor: `mdHBDBottomColor`,
+    // paddingBottom: [1, 2]
   },
   h4: {
     ...tailwind.styles.h4,
     color: `heading`,
     fontSize: [2, 3],
-    mt: [50, 80],
-    borderBottom: `1px solid`,
-    borderBottomColor: `mdHBDBottomColor`,
-    paddingBottom: [1, 2]
+    mt: [30, 50],
+    // borderBottom: `1px solid`,
+    // borderBottomColor: `mdHBDBottomColor`,
+    // paddingBottom: [1, 2]
   },
   h5: {
     ...tailwind.styles.h5,
@@ -40,9 +40,9 @@ const headingStyles = {
     fontSize: [1, 2],
     mb: 2,
     mt: [30, 50],
-    borderBottom: `1px solid`,
-    borderBottomColor: `mdHBDBottomColor`,
-    paddingBottom: [1, 2]
+    // borderBottom: `1px solid`,
+    // borderBottomColor: `mdHBDBottomColor`,
+    // paddingBottom: [1, 2]
   },
   h6: {
     ...tailwind.styles.h6,
@@ -69,6 +69,7 @@ export default {
     mdCodeText: tailwind.colors.gray[9],
     mdAColor: tailwind.colors.blue[7],
     mdHBDBottomColor: tailwind.colors.black,
+    mdBQBgColor: tailwind.colors.gray[2],
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
@@ -83,6 +84,7 @@ export default {
         mdCodeText: tailwind.colors.gray[2],
         mdAColor: tailwind.colors.indigo[2],
         mdHBDBottomColor: tailwind.colors.gray[4],
+        mdBQBgColor: tailwind.colors.gray[8],
       },
     },
   },
@@ -116,7 +118,8 @@ export default {
       borderLeftColor: `primary`,
       borderLeftStyle: `solid`,
       borderLeftWidth: `6px`,
-      mx: 0,
+      mx: 1,
+      py: `6px`,
       pl: 4,
     },
   },

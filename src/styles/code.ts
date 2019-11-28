@@ -33,6 +33,7 @@ export default {
   'section[name="markdown-post"] a': {
     color: `mdAColor`,
   },
+
   'section[name="markdown-post"] code': {
     bg: `mdCodeBg`,
     color: `mdCodeText`,
@@ -41,7 +42,16 @@ export default {
     pl: `0.2rem`,
     pr: `0.2rem`,
     pt: `0.2rem`,
-    pb: `0.2rem`,   
+    pb: `0.2rem`,
+  },
+
+  'section[name="markdown-post"] blockquote': {
+    bg: `mdBQBgColor`,
+  },
+
+  'section[name="markdown-post"] blockquote p': {
+    mt: 1,
+    mb: 1,
   },
 
   ".gatsby-highlight": {

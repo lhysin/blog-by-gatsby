@@ -7,16 +7,19 @@ tags:
   - etc
 ---
 > 2019년 웹 개발자를 위한 로드맵  
-> from [roadmap.sh](https://roadmap.sh)
+> Reference By [https://roadmap.sh](https://roadmap.sh)
 
 #### Intro
+
 ![Intro](./intro.png)
 
 #### Frontend Roadmap
+
 ![Frontend Roadmap](./frontend.png)
 
 #### Back-end Roadmap
+
 ![Back-end Roadmap](./backend.png)
 
-#### DevOps Roadmap
+
 ![DevOps Roadmap](./devops.png)
