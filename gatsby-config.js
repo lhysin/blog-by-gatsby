@@ -10,7 +10,7 @@ module.exports = {
       author: `lhysin`,
       githubUrl: `https://github.com/lhysin`,
       navigation: [
-/*        {
+        /*{
           title: `Home`,
           slug: `/`,
         },*/
@@ -94,16 +94,33 @@ module.exports = {
                 linkImagesToOriginal: false,
               },
             },
-          ],
-          plugins: [
+            'gatsby-remark-autolink-headers',
             {
-              resolve: `gatsby-remark-images`,
+              resolve: `gatsby-remark-vscode`,
+              // All options are optional. Defaults shown here.
               options: {
-                maxWidth: 960,
-                quality: 90,
-                linkImagesToOriginal: false,
-              },
-            },
+                colorTheme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+                wrapperClassName: '',    // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
+                injectStyles: true,     // Injects (minimal) additional CSS for layout and scrolling
+                extensions: [],         // Extensions to download from the marketplace to provide more languages and themes
+                languageAliases: {},    // Map of custom/unknown language codes to standard/known language codes
+                replaceColor: x => x,   // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
+                getLineClassName: ({    // Function allowing dynamic setting of additional class names on individual lines
+                  language,             //   - the language specified for the code fence
+                }) => {
+                  if (!!language){
+                    if (language.includes('noLineNumbers') ||
+                        language.includes('text') || 
+                        language.includes('shell')){
+                      return 'no-line-nubmers';
+                    }
+                  } else {
+                    return 'no-line-nubmers';
+                  }
+                },
+                logLevel: 'error'       // Set to 'warn' to debug if something looks wrong
+              }
+            }
           ],
         },
       },

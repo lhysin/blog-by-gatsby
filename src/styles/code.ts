@@ -30,11 +30,11 @@ export default {
   },
 
   /* markdown section only */
-  'section[name="markdown-post"] a': {
+  'section[id="markdown-post"] a': {
     color: `mdAColor`,
   },
 
-  'section[name="markdown-post"] code': {
+  'section[id="markdown-post"] p code': {
     bg: `mdCodeBg`,
     color: `mdCodeText`,
     px: 2,
@@ -45,16 +45,17 @@ export default {
     pb: `0.2rem`,
   },
 
-  'section[name="markdown-post"] blockquote': {
+  'section[id="markdown-post"] blockquote': {
     bg: `mdBQBgColor`,
   },
 
-  'section[name="markdown-post"] blockquote p': {
+  'section[id="markdown-post"] blockquote p': {
     mt: 1,
     mb: 1,
   },
 
-  ".gatsby-highlight": {
+  ".vscode-highlight": {
+    counterReset: `line`,
     mt: `0.5rem`,
     mb: `0.5rem`,
     fontSize: 1,
@@ -92,7 +93,7 @@ export default {
       background: `#f7df1e`,
       color: `black`,
     },
-    'pre[class~="language-js"]:before': {
+    'pre[data-language="js"]:before': {
       content: `"js"`,
       background: `#f7df1e`,
       color: `black`,
@@ -134,9 +135,10 @@ export default {
       background: `#f9ac00`,
       color: `black`,
     },
+    /*
     'pre[class~="language-text"]:before': {
       content: `"text"`,
-    },
+    },*/
     "pre[class='language-shell']:before": {
       content: `'shell'`,
     },
@@ -161,8 +163,23 @@ export default {
       content: `'diff'`,
       background: `#e6ffed`,
     },
+    ".vscode-highlight-line::before": {
+      counterIncrement: "line",
+      content: "counter(line)",
+      marginRight: "16px",
+      marginLeft: "-8px",
+      WebkitUserSelect: "none",
+      userSelect: "none",
+      textAlign: `center`,
+      width: `20px`,
+      display: `inline-block`,
+      fontColor: `#405261`
+    },
+    ".no-line-nubmers.vscode-highlight-line::before": {
+      display: `none`
+    }
   },
-  '.gatsby-highlight > code[class*="language-"], .gatsby-highlight > pre[class=*="language-"]': {
+  '.vscode-highlight > code[class*="language-"], .vscode-highlight > pre[class=*="language-"]': {
     wordSpacing: `normal`,
     wordBreak: `normal`,
     overflowWrap: `normal`,
@@ -193,9 +210,9 @@ export default {
   ".token-line": {
     pr: 3,
   },
-  ".highlight-line": {
+  ".vscode-highlight-line-highlighted": {
     backgroundColor: `rgb(2, 55, 81)`,
-    borderLeft: `4px solid rgb(2, 155, 206)`,
+    /*borderLeft: `4px solid rgb(2, 155, 206)`,*/
     ".line-number-style": {
       width: `calc(3em - 4px)`,
       opacity: 0.5,

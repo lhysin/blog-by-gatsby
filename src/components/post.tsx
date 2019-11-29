@@ -16,6 +16,10 @@ type PostProps = {
       slug: string
       title: string
       date: string
+      category?: {
+        name: string
+        slug: string
+      }[]
       tags?: {
         name: string
         slug: string
@@ -44,7 +48,7 @@ const Post = ({ data: { post } }: PostProps) => {
 
   let category = '';
   if(!!post.category && post.category.length > 0){
-    category = post.category[0];
+    category = post.category[0].name;
   }
 
   return (
@@ -62,7 +66,7 @@ const Post = ({ data: { post } }: PostProps) => {
         <time>{`[`}{post.date}{`]`}</time>
         { !!category && (
              <Styled.a as={Link} to={replaceSlashes(`/${basePath}/${categoriesPath}/${category.slug}`)} sx={{ml:1}}>
-              {`@`}{category.name}
+              {`@`}{category}
              </Styled.a>
         )}
       </p>
@@ -71,7 +75,7 @@ const Post = ({ data: { post } }: PostProps) => {
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
-      <section name="markdown-post" sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
+      <section id="markdown-post" sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </section>
     </Layout>

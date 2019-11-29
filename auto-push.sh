@@ -8,7 +8,7 @@ append_message="$(git status --short)"
 
 if [ -z "$commit_message" ]
 then
-    git commit -m "[$(date +%Y-%m-%d)] $append_message"
+    git commit -m "[$(date +%Y-%m-%d)] modified source." -m "$append_message"
 else
     git commit -m "[$(date +%Y-%m-%d)] $commit_message" -m "$append_message"
 fi

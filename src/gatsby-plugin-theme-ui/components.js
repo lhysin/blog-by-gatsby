@@ -1,8 +1,8 @@
 /* eslint react/prop-types: 0 */
 import React from "react"
-import { preToCodeBlock } from "mdx-utils"
+// import { preToCodeBlock } from "mdx-utils"
 import { Text } from "@theme-ui/components"
-import Code from "../components/code"
+// import Code from "../components/code"
 import Title from "../components/title"
 
 export default {
@@ -13,11 +13,11 @@ export default {
     </Title>
   ),
   pre: preProps => {
-    const props = preToCodeBlock(preProps)
+    // const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test
-    if (props) {
-      return <Code {...props} />
-    }
+    // if (props) {
+    //   return <Code {...props} />
+    // }
     // it's possible to have a pre without a code in it
     return <pre {...preProps} />
   },
