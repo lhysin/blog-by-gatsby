@@ -70,6 +70,7 @@ export default {
     mdAColor: tailwind.colors.blue[7],
     mdHBDBottomColor: tailwind.colors.black,
     mdBQBgColor: tailwind.colors.gray[2],
+    mdSVGBgColor: tailwind.colors.black,
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
@@ -85,6 +86,7 @@ export default {
         mdAColor: tailwind.colors.indigo[2],
         mdHBDBottomColor: tailwind.colors.gray[4],
         mdBQBgColor: tailwind.colors.gray[8],
+        mdSVGBgColor: tailwind.colors.white,
       },
     },
   },

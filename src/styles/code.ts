@@ -54,6 +54,10 @@ export default {
     mb: 1,
   },
 
+  'section[id="markdown-post"] svg': {
+    fill : `mdSVGBgColor`
+  },
+
   ".vscode-highlight": {
     counterReset: `line`,
     mt: `0.5rem`,
