@@ -352,7 +352,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     category.forEach(category => {
         const slug = kebabCase(category.fieldValue)
         createPage({
-          path: `/${basePath}/${categoriesPath}/${slug}`.replace(/\/\/+/g, `/`),
+          path: `/${basePath}/${categoriesPath}/${category.fieldValue}`.replace(/\/\/+/g, `/`),
           component: categoryTemplate,
           context: {
             slug: slug,
@@ -368,7 +368,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     tags.forEach(tag => {
         const slug = kebabCase(tag.fieldValue)
         createPage({
-          path: `/${basePath}/${tagsPath}/${slug}`.replace(/\/\/+/g, `/`),
+          path: `/${basePath}/${tagsPath}/${tag.fieldValue}`.replace(/\/\/+/g, `/`),
           component: tagTemplate,
           context: {
             slug: slug,
