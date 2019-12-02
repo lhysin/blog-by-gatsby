@@ -11,15 +11,24 @@ tags:
 
 #### Intro
 
+---
+
 ![Intro](./intro.png)
 
 #### Frontend Roadmap
+
+---
 
 ![Frontend Roadmap](./frontend.png)
 
 #### Back-end Roadmap
 
+---
+
 ![Back-end Roadmap](./backend.png)
 
+#### Dev Ops Roadmap
+
+---
 
 ![DevOps Roadmap](./devops.png)

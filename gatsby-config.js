@@ -86,14 +86,16 @@ module.exports = {
         options: {
           extensions: [`.mdx`, `.md`],
           gatsbyRemarkPlugins: [
-            // {
-            //   resolve: `gatsby-remark-images`,
-            //   options: {
-            //     maxWidth: 960,
-            //     quality: 90,
-            //     linkImagesToOriginal: false,
-            //   },
-            // },
+            `gatsby-plugin-sharp`,
+            {
+              resolve: `gatsby-remark-images`,
+              options: {
+                maxWidth: 960,
+                quality: 90,
+                linkImagesToOriginal: true,
+                disableBgImageOnAlpha: true,
+              },
+            },
             'gatsby-remark-autolink-headers',
             {
               resolve: `gatsby-remark-vscode`,

@@ -18,6 +18,10 @@ type PostsProps = {
 const Categories = ({ list }: PostsProps) => {
   const { categoriesPath } = useSiteMetadata()
 
+  list.sort(function (a, b) {
+    return a.totalCount > b.totalCount ? -1 : a.totalCount < b.totalCount ? 1 : 0;
+  });
+
   return (
     <Layout>
       <SEO title="Categories" />

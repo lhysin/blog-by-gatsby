@@ -30,32 +30,46 @@ export default {
   },
 
   /* markdown section only */
-  'section[id="markdown-post"] a': {
-    color: `mdAColor`,
-  },
+  'section[id="markdown-post"]' :{
 
-  'section[id="markdown-post"] p code': {
-    bg: `mdCodeBg`,
-    color: `mdCodeText`,
-    px: 2,
-    py: 1,
-    pl: `0.2rem`,
-    pr: `0.2rem`,
-    pt: `0.2rem`,
-    pb: `0.2rem`,
-  },
+    'a': {
+      color: `mdAColor`,
+    },
 
-  'section[id="markdown-post"] blockquote': {
-    bg: `mdBQBgColor`,
-  },
+    'p code': {
+      bg: `mdCodeBg`,
+      color: `mdCodeText`,
+      px: 2,
+      py: 1,
+      pl: `0.2rem`,
+      pr: `0.2rem`,
+      pt: `0.2rem`,
+      pb: `0.2rem`,
+    },
 
-  'section[id="markdown-post"] blockquote p': {
-    mt: 1,
-    mb: 1,
-  },
+    'blockquote': {
+      bg: `mdBQBgColor`,
+    },
 
-  'section[id="markdown-post"] svg': {
-    fill : `mdSVGBgColor`
+    'blockquote p': {
+      mt: 1,
+      mb: 1,
+    },
+
+    'svg': {
+      fill: `mdSVGBgColor`
+    },
+
+    '.gatsby-resp-image-image ': {
+      maxWidth: `100% !important`,
+      width: `100 %`,
+      height: `100 %`,
+      margin: 0,
+      verticalAlign: `middle`,
+      position: `absolute`,
+      top: 0,
+      left: 0,
+    },
   },
 
   ".vscode-highlight": {
@@ -77,7 +91,7 @@ export default {
     "pre.language-noLineNumbers": {
       mt: 0,
     },
-    /* disable tile */
+    /* disable tile 
     'pre[class*="language-"]:before': {
       bg: `white`,
       borderRadius: `0 0 0.25rem 0.25rem`,
