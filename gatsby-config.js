@@ -86,18 +86,18 @@ module.exports = {
         options: {
           extensions: [`.mdx`, `.md`],
           gatsbyRemarkPlugins: [
-            {
-              resolve: `gatsby-remark-images`,
-              options: {
-                maxWidth: 960,
-                quality: 90,
-                linkImagesToOriginal: false,
-              },
-            },
+            // {
+            //   resolve: `gatsby-remark-images`,
+            //   options: {
+            //     maxWidth: 960,
+            //     quality: 90,
+            //     linkImagesToOriginal: false,
+            //   },
+            // },
             'gatsby-remark-autolink-headers',
             {
               resolve: `gatsby-remark-vscode`,
-              // All options are optional. Defaults shown here.
+              // All options are optional.
               options: {
                 colorTheme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
                 wrapperClassName: '',    // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.

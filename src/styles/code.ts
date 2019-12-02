@@ -97,11 +97,6 @@ export default {
       background: `#f7df1e`,
       color: `black`,
     },
-    'pre[data-language="js"]:before': {
-      content: `"js"`,
-      background: `#f7df1e`,
-      color: `black`,
-    },
     'pre[class~="language-jsx"]:before': {
       content: `"jsx"`,
       background: `#61dafb`,

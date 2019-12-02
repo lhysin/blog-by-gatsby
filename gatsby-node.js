@@ -44,8 +44,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
 
   const slugify = source => {
     const slug = kebabCase(source.title)
-
-    return `/${basePath}/${slug}`.replace(/\/\/+/g, `/`)
+    return slug;
   }
 
   createFieldExtension({
@@ -151,12 +150,12 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       if(Array.isArray(node.frontmatter.tags)){
         modifiedTags = modifiedCategories.concat(node.frontmatter.tags.map(tag => ({
           name: toLower(tag),
-          slug: toLower(tag),
+          slug: kebabCase(tag),
         })))
       } else {
         modifiedTags.push({
           name: toLower(node.frontmatter.tags),
-          slug: toLower(node.frontmatter.tags),
+          slug: kebabCase(node.frontmatter.tags),
         })
       }
     }
@@ -165,12 +164,12 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       if(Array.isArray(node.frontmatter.category)){
         modifiedCategories = modifiedCategories.concat(node.frontmatter.category.map(category => ({
           name: toUpper(category),
-          slug: toUpper(category),
+          slug: kebabCase(category),
         })))
       } else {
         modifiedCategories.push({
           name: toUpper(node.frontmatter.category),
-          slug: toUpper(node.frontmatter.category),
+          slug: kebabCase(node.frontmatter.category),
         })
       }
     }
@@ -320,13 +319,14 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   if(posts.length > 0){
       posts.forEach(post => {
-      createPage({
-        path: `/${basePath}/${postPath}/${post.title}`.replace(/\/\/+/g, `/`),
-        component: postTemplate,
-        context: {
-          slug: post.slug,
-        },
-      })
+        const slug = kebabCase(post.slug)
+        createPage({
+          path: `/${basePath}/${postPath}/${slug}`.replace(/\/\/+/g, `/`),
+          component: postTemplate,
+          context: {
+            slug: slug,
+          },
+        })
     })
   }
 
@@ -335,13 +335,14 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   if (pages.length > 0) {
     pages.forEach(page => {
-      createPage({
-        path: `/${basePath}/${page.slug}`.replace(/\/\/+/g, `/`),
-        component: pageTemplate,
-        context: {
-          slug: page.slug,
-        },
-      })
+        const slug = kebabCase(page.slug)
+        createPage({
+          path: `/${basePath}/${slug}`.replace(/\/\/+/g, `/`),
+          component: pageTemplate,
+          context: {
+            slug: slug,
+          },
+        })
     })
   }
 
@@ -349,14 +350,15 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   if (category.length > 0) {
     category.forEach(category => {
-      createPage({
-        path: `/${basePath}/${categoriesPath}/${category.fieldValue}`.replace(/\/\/+/g, `/`),
-        component: categoryTemplate,
-        context: {
-          slug: category.fieldValue,
-          name: category.fieldValue,
-        },
-      })
+        const slug = kebabCase(category.fieldValue)
+        createPage({
+          path: `/${basePath}/${categoriesPath}/${slug}`.replace(/\/\/+/g, `/`),
+          component: categoryTemplate,
+          context: {
+            slug: slug,
+            name: category.fieldValue,
+          },
+        })
     })
   }
 
@@ -364,14 +366,15 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
 
   if (tags.length > 0) {
     tags.forEach(tag => {
-      createPage({
-        path: `/${basePath}/${tagsPath}/${tag.fieldValue}`.replace(/\/\/+/g, `/`),
-        component: tagTemplate,
-        context: {
-          slug: tag.fieldValue,
-          name: tag.fieldValue,
-        },
-      })
+        const slug = kebabCase(tag.fieldValue)
+        createPage({
+          path: `/${basePath}/${tagsPath}/${slug}`.replace(/\/\/+/g, `/`),
+          component: tagTemplate,
+          context: {
+            slug: slug,
+            name: tag.fieldValue,
+          },
+        })
     })
   }
 }

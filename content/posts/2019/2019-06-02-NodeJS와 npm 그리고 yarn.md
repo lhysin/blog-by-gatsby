@@ -31,7 +31,7 @@ tags:
 
 ##### node 설치 확인
 
-```shell noLineNumbers
+```shell
 # 버전확인
 node -v
 ```
@@ -49,14 +49,14 @@ node -v
 
 ##### npm 설치 확인
 
-```shell noLineNumbers
+```shell
 # 버전확인
 npm -v
 ```
 
 ##### npm 기본적인 명령어
 
-```shell noLineNumbers
+```shell
 
 # node 초기화
 npm init
@@ -88,7 +88,7 @@ npm run <script> [<args>]
 
 * npm 5버전 이상에 추가된 기능으로서 설치하지 않고 바로 앱을 실행한다.
 
-```shell noLineNumbers
+```shell
 npx http-server
 ```
 
@@ -101,14 +101,14 @@ npx http-server
 
 ##### yarn 설치 확인
 
-```shell noLineNumbers
+```shell
 # 버전확인
 yarn -v
 ```
 
 ##### yarn 기본적인 명령어
 
-```shell noLineNumbers
+```shell
 # node 초기화
 yarn init
 

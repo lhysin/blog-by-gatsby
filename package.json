@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "re-develop": "gatsby clean && gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "clean": "gatsby clean"

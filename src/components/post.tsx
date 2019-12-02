@@ -47,7 +47,7 @@ const Post = ({ data: { post } }: PostProps) => {
   const { categoriesPath, basePath } = useSiteMetadata()
 
   let category = '';
-  if(!!post.category && post.category.length > 0){
+  if (!!post && !!post.category && post.category.length > 0){
     category = post.category[0].name;
   }
 
@@ -65,7 +65,7 @@ const Post = ({ data: { post } }: PostProps) => {
       <p sx={{ color: `secondary`, mt:0, mb:0, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
         <time>{`[`}{post.date}{`]`}</time>
         { !!category && (
-             <Styled.a as={Link} to={replaceSlashes(`/${basePath}/${categoriesPath}/${category.slug}`)} sx={{ml:1}}>
+             <Styled.a as={Link} to={replaceSlashes(`/${basePath}/${categoriesPath}/${category}`)} sx={{ml:1}}>
               {`@`}{category}
              </Styled.a>
         )}

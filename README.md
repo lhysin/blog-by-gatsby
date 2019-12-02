@@ -8,6 +8,5 @@ And Inspierd [@lekoarts/gatsby-theme-minimal-blog-core]([https://github.com/Leko
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ef45ab54-d1ec-4f1b-b3ad-2728916ff09b/deploy-status)](https://app.netlify.com/sites/lhysin/deploys)
 
-
 ![Favicon](https://lhysin.netlify.com/favicon.ico)
 Powered by [favicon.io](https://favicon.io/favicon-generator)
