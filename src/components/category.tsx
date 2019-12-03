@@ -30,9 +30,27 @@ type CategoryProps = {
 const Category = ({ posts, pageContext }: CategoryProps) => {
   const { categoriesPath, basePath } = useSiteMetadata()
 
+  let text = '';
+  if (pageContext.name === 'DEVOPS'){
+    text = '개발환경 및 서버 인프라';
+  } else if (pageContext.name === 'FRONTEND') {
+    text = 'Frontend Language와 Framework';
+  } else if (pageContext.name === 'BACKEND') {
+    text = 'Back-end Language와 Framework';
+  } else if (pageContext.name === 'ISSUE') {
+    text = '프로젝트 진행 중 발생한 이슈와 해결방안';
+  } else if (pageContext.name === 'LEARNING') {
+    text = '학습에 도움되는 것들';
+  }
+
   return (
     <Layout>
       <SEO title={`Category: ${pageContext.name}`} />
+      {!!text && (
+        <Heading variant="h4" as="h4">
+          {text}
+        </Heading>
+      )}
       <Title text={`Category: @${pageContext.name}`}>
       </Title>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
