@@ -16,9 +16,8 @@ b-modal의 props로 ignore-enforce-focus-selector 정의 필요.
 
 [https://bootstrap-vue.org/docs/components/modal#keyboard-navigation](https://bootstrap-vue.org/docs/components/modal#keyboard-navigation)
 
----
-
 #### Custom Component 생성시 Vee-Validate
+---
 vee-validate의 경우 정의된 event config에 의해 v-validate props이 적용된 component의
 유효성을 검증하게된다.
 
