@@ -2,7 +2,7 @@
 title: "BootstrapVue 이슈"
 date: "2020-10-30"
 category:
-  - frontend
+  - Issue
 tags:
   - vuejs
 ---
