@@ -21,7 +21,6 @@ export const query = graphql`
       slug
       title
       date(formatString: "YYYY-MM-DD")
-      modifiedDate(formatString: "YYYY-MM-DD")
       tags {
         name
         slug
