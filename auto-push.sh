@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-echo "    git pull"
-git pull
-
 arg_messge="$1"
 
 echo "    git add . -A"
@@ -17,6 +14,9 @@ else
     echo "    git commit -m [$(date +%Y-%m-%d)] $arg_messge"
     git commit -m "[$(date +%Y-%m-%d)] $arg_messge" -m "$append_message"
 fi
+
+echo "    git pull --rebase"
+git pull --rebase
 
 echo "    git push"
 git push

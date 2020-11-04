@@ -1,5 +1,6 @@
 
 # lhysin' blog
+
 Powered By [Gatsbyjs](https://www.gatsbyjs.org/)
 And Inspierd [@lekoarts/gatsby-theme-minimal-blog-core]([https://github.com/LekoArts/gatsby-themes](https://github.com/LekoArts/gatsby-themes))
 
@@ -10,3 +11,18 @@ And Inspierd [@lekoarts/gatsby-theme-minimal-blog-core]([https://github.com/Leko
 
 ![Favicon](https://lhysin.netlify.com/favicon.ico)
 Powered by [favicon.io](https://favicon.io/favicon-generator)
+
+
+---
+# How to start
+```shell
+# Install the Gatsby CLI
+npm install -g gatsby-cli
+
+# Start development server
+gatsby develop
+
+# Create a production build
+gatsby build
+```
+---
